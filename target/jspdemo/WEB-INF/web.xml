@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee 
+         http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+
+    <!-- Application Display Name -->
+    <display-name>JSP Demo Login Application</display-name>
+    
+    <!-- Application Description -->
+    <description>
+        A complete JSP login application demonstrating MVC architecture with
+        JSP views, Servlet controllers, and JavaBean models. Features include
+        user authentication, session management, and JSTL conditional rendering.
+    </description>
+
+    <!-- Welcome File List -->
+    <welcome-file-list>
+        <welcome-file>login.jsp</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>index.html</welcome-file>
+    </welcome-file-list>
+
+    <!-- Session Configuration -->
+    <session-config>
+        <!-- Session timeout in minutes (30 minutes) -->
+        <session-timeout>30</session-timeout>
+        <!-- Cookie configuration for security -->
+        <cookie-config>
+            <http-only>true</http-only>
+            <secure>false</secure> <!-- Set to true in production with HTTPS -->
+        </cookie-config>
+        <!-- Tracking mode -->
+        <tracking-mode>COOKIE</tracking-mode>
+    </session-config>
+
+    <!-- Error Pages -->
+    <error-page>
+        <error-code>404</error-code>
+        <location>/error.jsp</location>
+    </error-page>
+    
+    <error-page>
+        <error-code>500</error-code>
+        <location>/error.jsp</location>
+    </error-page>
+    
+    <error-page>
+        <exception-type>java.lang.Exception</exception-type>
+        <location>/error.jsp</location>
+    </error-page>
+
+    <!-- Security Constraints (Optional - for protected pages) -->
+    <!--
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Protected Pages</web-resource-name>
+            <url-pattern>/welcome.jsp</url-pattern>
+            <http-method>GET</http-method>
+            <http-method>POST</http-method>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>user</role-name>
+        </auth-constraint>
+    </security-constraint>
+    -->
+
+    <!-- Context Parameters -->
+    <context-param>
+        <param-name>application.name</param-name>
+        <param-value>JSP Demo Login Application</param-value>
+    </context-param>
+    
+    <context-param>
+        <param-name>application.version</param-name>
+        <param-value>1.0</param-value>
+    </context-param>
+    
+    <context-param>
+        <param-name>developer.name</param-name>
+        <param-value>Ashwin</param-value>
+    </context-param>
+
+    <!-- MIME Type Mappings -->
+    <mime-mapping>
+        <extension>css</extension>
+        <mime-type>text/css</mime-type>
+    </mime-mapping>
+    
+    <mime-mapping>
+        <extension>js</extension>
+        <mime-type>application/javascript</mime-type>
+    </mime-mapping>
+
+</web-app>
